@@ -1,0 +1,26 @@
+1. Quais são as entidades necessárias?
+As entidades necessárias foram: empresas, colaboradores, tecnologias e empresas_tecnologias.
+
+2. Quais são os principais campos e seus respectivos tipos?
+Os principais campos foram: 
+Na tabela empresas possui: id INT AUTO_INCREMENT, nome VARCHAR(255), cnpj INT(14), endereco VARCHAR(255) e telefone INT(20).
+Na tabela colaboradores possui: id INT AUTO_INCREMENT, nome VARCHAR(255), cpf INT(11), cargo VARCHAR(50) e telefone INT(20) e chave estrangeira: empresas_id INT.
+Na tabela tecnologia possui: id INT AUTO_INCREMENT, nome VARCHAR(255) e area_atuacao VARCHAR(50).
+Na tabela empresas_tecnologias possui apenas Chaves estrangeiras: empresas_id INT e tecnologias_id INT.
+
+3. Como essas entidades estão relacionadas?
+A tabela "empresas" possui sua chave primaria na coluna "id" e está sendo referenciada como chaves estrangeiras nas tabelas "colaboradores" e "empresas_tecnologias" nas colunas "empresas_id"; a tabela "tecnologia" possui sua chave estrangeira na coluna "id" e está sendo referenciada como chave estrangeira na tabela "empresas_tecnologias" na coluna "tecnologia_id"
+
+4. Simule 2 registros para cada entidade.
+-- inserindo dados empresas
+INSERT INTO empresas (nome, cnpj, endereco, telefone)
+VALUES ('creativa web', 12345678910111 , 'rua cachorro malhado, numero: 66', 5050505050),
+       ('futuro dev', 12345678910111, 'rua enche linguiça, numero 00', 0112223333);
+-- inserindo dados tecnologias
+INSERT INTO tecnologias (nome, area_atuacao)
+VALUES ('nasa', 'Web'),
+       ('pentagono', 'Dados');
+-- inserindo dados colaboradores
+INSERT INTO colaboradores (nome, cpf, cargo, empresa_id)
+VALUES ('jaymerson', 15123564878, 'cio', 1),
+       ('sr. ferreira', 15123564878, 'cto', 2);
